@@ -11,10 +11,24 @@
 </head>
 <body>
     <h1>Password Generator</h1>
+    <label for="passwordLength">Password Length:</label>
+    <input type="number" id="passwordLength" min="4" max="128" value="10">
 
-    <h3>Generated Password: <span id="password"> </span></h3>
+    <label for="includeUpperCase">Include Uppercase Letters</label>
+    <input type="checkbox" id="includeUpperCase" checked>
 
+    <label for="includeLowerCase">Include Lowercase Letters</label>
+    <input type="checkbox" id="includeLowerCase" checked>
+
+    <label for="includeNumbers">Include Numbers</label>
+    <input type="checkbox" id="includeNumbers" checked>
+
+    <label for="includeSymbols">Include Symbols</label>
+    <input type="checkbox" id="includeSymbols" checked>
+
+    <button onclick="generatePassword()">Generate Password</button><br><br>
     
-     
+    <label for="password">Generated Password:</label>
+    <input type="text" id="password" readonly>
 </body>
 </html>

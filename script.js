@@ -9,14 +9,14 @@ function generatePassword() {
     let allowedChars = '';
     let password = '';
 
-    if (uppercaseChars) allowedChars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    if (lowercaseChars) allowedChars += 'abcdefghijklmnopqrstuvwxyz';
-    if (numberChars) allowedChars += '0123456789';
-    if (symbolChars) allowedChars += '!@#$%^&*()_+-=[]{}|;:,.<>/?';
+    if (includeUpperCase) allowedChars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (includeLowerCase) allowedChars += 'abcdefghijklmnopqrstuvwxyz';
+    if (includeNumbers) allowedChars += '0123456789';
+    if (includeSymbols) allowedChars += '!@#$%^&*()_+-=[]{}|;:,.<>/?';
 
 
     if (allowedChars.length > 0) {
-    for(let i = 0; i < length; i++) {
+    for(let i = 0; i < passwordLength; i++) {
         const randomIndex = Math.floor(Math.random() * allowedChars.length);
         password += allowedChars[randomIndex];
     }
