@@ -30,7 +30,7 @@ function generatePassword(length, includeUpperCase, includeLowerCase, includeNum
         const randomIndex = Math.floor(Math.random() * allowedChars.length);
         password += allowedChars[randomIndex];
     }
-    console.log(allowedChars);
+    
     return password;
 }
 
@@ -39,4 +39,4 @@ let password = generatePassword(passwordLength, includeUpperCase, includeLowerCa
 
 console.log(`Generated Password: ${password}`);
 
-
+document.getElementById('password').innerHTML = password;
