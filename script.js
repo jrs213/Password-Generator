@@ -1,42 +1,32 @@
-const passwordLength = 10;
-const includeUpperCase = true;
-const includeLowerCase = true;
-const includeNumbers = true;
-const includeSymbols = true;
+function generatePassword() {
 
-function generatePassword(length, includeUpperCase, includeLowerCase, includeNumbers, includeSymbols) {
-
-    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
-    const numberChars = '0123456789';
-    const symbolChars = '!@#$%^&*()_+-=[]{}|;:,.<>/?';
+    const passwordLength = document.getElementById('passwordLength').value;
+    const includeUpperCase = document.getElementById('includeUpperCase').checked;
+    const includeLowerCase = document.getElementById('includeLowerCase').checked;
+    const includeNumbers = document.getElementById('includeNumbers').checked;
+    const includeSymbols = document.getElementById('includeSymbols').checked;
 
     let allowedChars = '';
     let password = '';
 
-    allowedChars += includeUpperCase ? uppercaseChars : '';
-    allowedChars += includeLowerCase ? lowercaseChars : '';
-    allowedChars += includeNumbers ? numberChars : '';
-    allowedChars += includeSymbols ? symbolChars : '';
+    if (uppercaseChars) allowedChars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    if (lowercaseChars) allowedChars += 'abcdefghijklmnopqrstuvwxyz';
+    if (numberChars) allowedChars += '0123456789';
+    if (symbolChars) allowedChars += '!@#$%^&*()_+-=[]{}|;:,.<>/?';
 
-    if (length <= 0) {  
-        return 'Length must be greater than 0';
-    }
-    if (allowedChars.length === 0) {
-        return 'Please select at least one character type';
-    }
 
+    if (allowedChars.length > 0) {
     for(let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * allowedChars.length);
         password += allowedChars[randomIndex];
     }
-    
-    return password;
+} else {
+    password = 'No characters selected';
 }
 
-let password = generatePassword(passwordLength, includeUpperCase, includeLowerCase, includeNumbers, includeSymbols);
+    document.getElementById('password').value = password;
+
+    
+}
 
 
-console.log(`Generated Password: ${password}`);
-
-document.getElementById('password').innerHTML = password;
