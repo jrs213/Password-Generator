@@ -29,4 +29,9 @@ function generatePassword() {
     
 }
 
+function copyPassword() {
+    const password = document.getElementById('password').value;
+    navigator.clipboard.writeText(password);
+}
+
 
